@@ -5,8 +5,9 @@ import {Button, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-function Screen1({navigation}) {
+function Home1Screen({navigation}) {
 	return (
 		<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
 			<Text>Screen 1</Text>
@@ -15,11 +16,19 @@ function Screen1({navigation}) {
 	);
 }
 
-function Screen2({navigation}) {
+function Home2Screen({navigation}) {
 	return (
 		<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
 			<Text>Screen 2</Text>
 			<Button title="Go back" onPress={() => navigation.goBack()}/>
+		</View>
+	);
+}
+
+function ContactScreen() {
+	return (
+		<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+			<Text>Contact Screen</Text>
 		</View>
 	);
 }
@@ -49,23 +58,32 @@ function OrdersScreen() {
 }
 
 
-const Stack = createNativeStackNavigator();
-
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-function StartStack() {
+function HomeStack() {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name="Screen 1" component={Screen1}/>
-			<Stack.Screen name="Screen 2" component={Screen2}/>
+			<Stack.Screen name="Screen 1" component={Home1Screen}/>
+			<Stack.Screen name="Screen 2" component={Home2Screen}/>
 		</Stack.Navigator>
+	);
+}
+
+function StartTabs() {
+	return (
+		<Tab.Navigator>
+			<Tab.Screen name="Home" component={HomeStack} />
+			<Tab.Screen name="Contact" component={ContactScreen} />
+		</Tab.Navigator>
 	);
 }
 
 function MainDrawer() {
 	return (
 		<Drawer.Navigator>
-			<Drawer.Screen name="Start" component={StartStack}/>
+			<Drawer.Screen name="Start" component={StartTabs}/>
 			<Drawer.Screen name="Your Cart" component={CartScreen}/>
 			<Drawer.Screen name="Favourites" component={FavouritesScreen}/>
 			<Drawer.Screen name="Your Orders" component={OrdersScreen}/>
