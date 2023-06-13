@@ -9,9 +9,9 @@ import Animated, {
 
 import StartBottomTab from './StartBottomTab';
 import DrawerContent from '../components/DrawerContent';
-import Cart from "../screens/Cart";
-import Favourites from "../screens/Favourites";
-import Orders from "../screens/Orders";
+import Cart from '../screens/Cart';
+import Favourites from '../screens/Favourites';
+import Orders from '../screens/Orders';
 import {colors} from '../constants/colors';
 
 const Drawer = createDrawerNavigator();

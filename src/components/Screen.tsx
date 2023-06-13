@@ -7,6 +7,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {useDrawerProgress} from '@react-navigation/drawer';
 
+import Header from './Header';
 import {colors} from '../constants/colors';
 
 export interface ScreenProps {
@@ -52,6 +53,7 @@ const Screen: React.FC<ScreenProps> = ({children, translateY}) => {
 
 	return (
 		<Animated.View style={[styles.container, animatedScreens]}>
+			<Header />
 			{children}
 		</Animated.View>
 	);
