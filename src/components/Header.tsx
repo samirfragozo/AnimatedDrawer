@@ -5,9 +5,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
 import {colors} from '../constants/colors';
+import {DrawerNavigationProp} from "@react-navigation/drawer";
 
 const Header = () => {
-	const navigation = useNavigation();
+	const navigation = useNavigation<DrawerNavigationProp<any>>();
 	const route = useRoute();
 
 	return (
