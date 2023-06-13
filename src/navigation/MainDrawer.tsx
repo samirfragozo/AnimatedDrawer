@@ -37,8 +37,13 @@ const MainDrawer = () => {
 			<Drawer.Navigator
 				drawerContent={props => <CustomDrawerContent {...props} />}
 				screenOptions={{
-					headerShown: false,
+					drawerActiveTintColor: colors.secondary,
+					drawerActiveBackgroundColor: colors.secondaryOpacity,
+					drawerInactiveTintColor: colors.white,
+					drawerItemStyle: styles.drawerItemStyle,
+					drawerLabelStyle: styles.drawerLabelStyle,
 					drawerStyle: styles.drawerStyle,
+					headerShown: false,
 					overlayColor: 'transparent',
 					sceneContainerStyle: styles.sceneContainerStyle,
 				}}>
@@ -64,6 +69,14 @@ export default MainDrawer;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+	},
+	drawerItemStyle: {
+		borderRadius: 10,
+	},
+	drawerLabelStyle: {
+		fontSize: 16,
+		fontWeight: '400',
+		paddingLeft: 10,
 	},
 	drawerStyle: {
 		width: 180,

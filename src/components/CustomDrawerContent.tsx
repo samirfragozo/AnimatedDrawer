@@ -1,21 +1,25 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {DrawerContentComponentProps} from '@react-navigation/drawer';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {DrawerContentComponentProps, DrawerItem, DrawerItemList} from '@react-navigation/drawer';
+import {useNavigation} from '@react-navigation/native';
 
-import CustomDrawerItem from './CustomDrawerItem';
 import {colors} from '../constants/colors';
 
-const CustomDrawerContent: React.FC<DrawerContentComponentProps> = () => {
+const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props) => {
+	const navigation = useNavigation();
+
 	return (
 		<SafeAreaView style={styles.container}>
 			<Text style={styles.logo}>Beka</Text>
-			<CustomDrawerItem label="Start" navigateTo="Start" focused={true}/>
-			<CustomDrawerItem label="Your Cart" navigateTo="Your Cart" focused={false}/>
-			<CustomDrawerItem label="Favourites" navigateTo="Favourites" focused={false}/>
-			<CustomDrawerItem label="Your Orders" navigateTo="Your Orders" focused={false}/>
+			<DrawerItemList {...props}  />
 			<View style={styles.divider}/>
-			<CustomDrawerItem label="Sign Out" navigateTo="Start" focused={false}/>
+			<DrawerItem
+				label="Sign Out"
+				onPress={() => navigation.navigate('Start')}
+				inactiveTintColor={colors.white}
+				labelStyle={styles.drawerLabelStyle}
+			/>
 		</SafeAreaView>
 	);
 };
@@ -36,6 +40,11 @@ const styles = StyleSheet.create({
 		marginHorizontal: 10,
 		marginVertical: 40,
 		opacity: 0.3,
+	},
+	drawerLabelStyle: {
+		fontSize: 16,
+		fontWeight: '400',
+		paddingLeft: 10,
 	},
 	logo: {
 		color: colors.white,
