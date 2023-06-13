@@ -1,12 +1,13 @@
+import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-import {StackParamList} from './StackParamList';
-import {styles} from '../styles';
+import {styles} from './styles';
+import {HomeStackParamList} from '../navigation/HomeStackParamList';
 
-type Screen1Props = NativeStackScreenProps<StackParamList, 'Screen 1'>;
+type HomeProps = NativeStackScreenProps<HomeStackParamList, 'Home'>;
 
-const Screen1: React.FC<Screen1Props> = ({navigation}) => (
+const Home: React.FC<HomeProps> = ({navigation}) => (
 	<View style={styles.container}>
 		<Text>Screen 1</Text>
 		<Button
@@ -16,4 +17,4 @@ const Screen1: React.FC<Screen1Props> = ({navigation}) => (
 	</View>
 );
 
-export default Screen1;
+export default Home;
