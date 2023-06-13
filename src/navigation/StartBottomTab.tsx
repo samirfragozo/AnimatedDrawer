@@ -3,22 +3,21 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import HomeStack from './HomeStack';
 import Contact from '../screens/Contact';
-import CustomDrawerScreen from '../components/CustomDrawerScreen';
-import {CustomDrawerScreenProps} from '../components/CustomDrawerScreenProps';
+import Screen, {ScreenProps} from '../components/Screen';
 
 const BottomTab = createBottomTabNavigator();
 
-const StartBottomTab: React.FC<CustomDrawerScreenProps> = ({translateY}) => (
-	<CustomDrawerScreen translateY={translateY}>
+const StartBottomTab: React.FC<ScreenProps> = ({translateY}) => (
+	<Screen translateY={translateY}>
 		<BottomTab.Navigator
 			initialRouteName="Home"
 			screenOptions={{
 				headerShown: false,
 			}}>
-			<BottomTab.Screen name="Home" component={HomeStack}/>
+			<BottomTab.Screen name="HomeStack" component={HomeStack}/>
 			<BottomTab.Screen name="Contact" component={Contact}/>
 		</BottomTab.Navigator>
-	</CustomDrawerScreen>
+	</Screen>
 );
 
 export default StartBottomTab;

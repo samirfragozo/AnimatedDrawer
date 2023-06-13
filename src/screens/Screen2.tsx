@@ -3,7 +3,7 @@ import {Button, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {styles} from './styles';
-import {HomeStackParamList} from '../navigation/HomeStackParamList';
+import {HomeStackParamList} from '../navigation/HomeStack';
 
 type Screen2Props = NativeStackScreenProps<HomeStackParamList, 'Screen 2'>;
 

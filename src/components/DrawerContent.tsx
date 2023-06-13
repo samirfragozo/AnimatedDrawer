@@ -2,29 +2,24 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {DrawerContentComponentProps, DrawerItem, DrawerItemList} from '@react-navigation/drawer';
-import {useNavigation} from '@react-navigation/native';
 
 import {colors} from '../constants/colors';
 
-const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props) => {
-	const navigation = useNavigation();
+const DrawerContent: React.FC<DrawerContentComponentProps> = ({navigation, ...props}) => (
+	<SafeAreaView style={styles.container}>
+		<Text style={styles.logo}>Beka</Text>
+		<DrawerItemList navigation={navigation} {...props}  />
+		<View style={styles.divider}/>
+		<DrawerItem
+			label="Sign Out"
+			onPress={() => navigation.navigate('Start')}
+			inactiveTintColor={colors.white}
+			labelStyle={styles.drawerLabelStyle}
+		/>
+	</SafeAreaView>
+);
 
-	return (
-		<SafeAreaView style={styles.container}>
-			<Text style={styles.logo}>Beka</Text>
-			<DrawerItemList {...props}  />
-			<View style={styles.divider}/>
-			<DrawerItem
-				label="Sign Out"
-				onPress={() => navigation.navigate('Start')}
-				inactiveTintColor={colors.white}
-				labelStyle={styles.drawerLabelStyle}
-			/>
-		</SafeAreaView>
-	);
-};
-
-export default CustomDrawerContent;
+export default DrawerContent;
 
 const styles = StyleSheet.create({
 	container: {

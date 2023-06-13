@@ -2,15 +2,14 @@ import React from 'react';
 import {Text, View} from 'react-native';
 
 import {styles} from './styles';
-import CustomDrawerScreen from '../components/CustomDrawerScreen';
-import {CustomDrawerScreenProps} from '../components/CustomDrawerScreenProps';
+import Screen, {ScreenProps} from '../components/Screen';
 
-const Cart: React.FC<CustomDrawerScreenProps> = ({translateY}) => (
-	<CustomDrawerScreen translateY={translateY}>
+const Cart: React.FC<ScreenProps> = ({translateY}) => (
+	<Screen translateY={translateY}>
 		<View style={styles.container}>
 			<Text>Cart</Text>
 		</View>
-	</CustomDrawerScreen>
+	</Screen>
 );
 
 export default Cart;

@@ -2,15 +2,14 @@ import React from 'react';
 import {Text, View} from 'react-native';
 
 import {styles} from './styles';
-import CustomDrawerScreen from '../components/CustomDrawerScreen';
-import {CustomDrawerScreenProps} from '../components/CustomDrawerScreenProps';
+import Screen, {ScreenProps} from '../components/Screen';
 
-const Orders: React.FC<CustomDrawerScreenProps> = ({translateY}) => (
-	<CustomDrawerScreen translateY={translateY}>
+const Orders: React.FC<ScreenProps> = ({translateY}) => (
+	<Screen translateY={translateY}>
 		<View style={styles.container}>
 			<Text>Orders</Text>
 		</View>
-	</CustomDrawerScreen>
+	</Screen>
 );
 
 export default Orders;

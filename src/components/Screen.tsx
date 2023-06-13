@@ -2,15 +2,19 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import Animated, {
 	Extrapolate,
-	interpolate,
+	interpolate, SharedValue,
 	useAnimatedStyle,
 } from 'react-native-reanimated';
 import {useDrawerProgress} from '@react-navigation/drawer';
 
-import {CustomDrawerScreenProps} from './CustomDrawerScreenProps';
 import {colors} from '../constants/colors';
 
-const CustomDrawerScreen: React.FC<CustomDrawerScreenProps> = ({children, translateY}) => {
+export interface ScreenProps {
+	children?: React.ReactNode;
+	translateY: SharedValue<number>;
+}
+
+const Screen: React.FC<ScreenProps> = ({children, translateY}) => {
 	const progress = useDrawerProgress();
 
 	const animatedScreens = useAnimatedStyle(() => {
@@ -53,7 +57,7 @@ const CustomDrawerScreen: React.FC<CustomDrawerScreenProps> = ({children, transl
 	);
 };
 
-export default CustomDrawerScreen;
+export default Screen;
 
 const styles = StyleSheet.create({
 	container: {

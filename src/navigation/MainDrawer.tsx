@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import StartBottomTab from './StartBottomTab';
-import CustomDrawerContent from '../components/CustomDrawerContent';
+import DrawerContent from '../components/DrawerContent';
 import Cart from "../screens/Cart";
 import Favourites from "../screens/Favourites";
 import Orders from "../screens/Orders";
@@ -35,7 +35,7 @@ const MainDrawer = () => {
 	return (
 		<Animated.View style={[styles.container, animatedStyle]}>
 			<Drawer.Navigator
-				drawerContent={props => <CustomDrawerContent {...props} />}
+				drawerContent={props => <DrawerContent {...props} />}
 				screenOptions={{
 					drawerActiveTintColor: colors.secondary,
 					drawerActiveBackgroundColor: colors.secondaryOpacity,
